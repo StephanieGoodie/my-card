@@ -5,48 +5,51 @@ const logo = new URL('../assets/open-wc-logo.svg', import.meta.url).href;
 class MyCard extends LitElement {
   static properties = {
     header: { type: String },
-  }
+  };
 
   static styles = css`
-    :host {
-      min-height: 100vh;
+    .card {
+      max-width: 400px;
+      margin: 0 auto;
+      border: 1px solid #0c0b0b;
+      background-color: #0c0b0b;
+      padding: 16px;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      font-size: calc(10px + 2vmin);
-      color: #1a2b42;
-      max-width: 960px;
-      margin: 0 auto;
       text-align: center;
-      background-color: var(--my-card-background-color);
     }
 
-    main {
-      flex-grow: 1;
+    .card img {
+      max-width: 100%;
+      height: auto;
     }
 
-    .logo {
-      margin-top: 36px;
-      animation: app-logo-spin infinite 20s linear;
+    .card-content {
+      flex: 1;
     }
 
-    @keyframes app-logo-spin {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
+    /* Style for the Title label */
+    h2 {
+      font-size: 24px;
+      margin: -10px 0;
+      /*background color and border */
+      background-color: #f8471b; /* background color */
+      color: #fff; /* Text color on the background */
+      padding: 8px 16px;
+      border-radius: 4px;
     }
 
-    .app-footer {
-      font-size: calc(12px + 0.5vmin);
-      align-items: center;
+    p {
+      font-size: 16px;
+      margin: 8px 0;
+      color: #fff;
     }
-
-    .app-footer a {
-      margin-left: 5px;
+    a.details-button {
+      background-color: #ea5f0a;
+      color: #fff;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 4px;
     }
   `;
 
