@@ -22,7 +22,7 @@ class MyCard extends LitElement {
       max-width: 100%;
       height: auto;
     }
-
+// arbitrary
     .card-content {
       flex: 1;
     }
