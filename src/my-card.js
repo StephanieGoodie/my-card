@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 
-const logo = new URL('../assets/open-wc-logo.svg', import.meta.url).href;
+// const logo = new URL('../assets/open-wc-logo.svg', import.meta.url).href;
 class MyCard extends LitElement {
   static properties = {
     header: { type: String },
@@ -58,10 +58,12 @@ class MyCard extends LitElement {
     this.header = 'My app';
   }
 
+  // eslint-disable-next-line class-methods-use-this
   randomColor() {
     const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
     const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
     let color = '';
+    // eslint-disable-next-line no-plusplus
     for (let i = 0; i < 3; i++) {
       const index = Math.floor(Math.random() * (numbers.length + letters.length));
       color += index < numbers.length ? numbers[index] : letters[index - numbers.length];
@@ -72,9 +74,9 @@ class MyCard extends LitElement {
   handleClick() {
     const card = this.shadowRoot.querySelector('.card');
     // Check the current background color
-    const currentColor = card.style.backgroundColor;
+    // const currentColor = card.style.backgroundColor;
     // Change background color
-    card.style.backgroundColor = '#' + this.randomColor();
+    card.style.backgroundColor = `#${  this.randomColor()}`;
   }
 
   handleHeadingChange() {
@@ -102,10 +104,12 @@ class MyCard extends LitElement {
       description.innerText = ''; // Hide the description
     }
   }
+  
   duplicateCard() {
     const clone = this.shadowRoot.querySelector('.card').cloneNode(true);
     this.shadowRoot.appendChild(clone); // Append the cloned card to the shadow root
-  }  
+  }
+  
 
   render() {
     return html`
@@ -123,7 +127,7 @@ class MyCard extends LitElement {
       <button id="colorBtn" @click="${this.handleClick}">BGColorChanger</button>
       <button id="Headingbtn" @click="${this.handleHeadingChange}">HeadingChanger</button>
       <button id="dltbtn" @click="${this.handleDeleteCard}">DeleteCard</button>
-    `;
+  </main>`;
   }
 }
 
